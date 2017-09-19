@@ -2,25 +2,30 @@ import java.util.Scanner;
 
 public class ControlFlowExercises {
     public static void main(String[] args) {
-        //3. Table of Powers
+        //4. Grade Converter (numeric -> alphabetic)
         Scanner input = new Scanner(System.in);
-        int end = 0;
+        int end = 0, gradeToConvert = 0;
         char runAgain = 'n';
 
         do {
-            System.out.println("This program displays the squares and cubes of numbers from 1 to the number you enter");
-            System.out.print("What number would you like to go up to?: ");
-            end = input.nextInt();
+            System.out.println("This program converts the numeric grade entered into an alphabetic grade.");
+            System.out.print("Please enter a grade [0 - 100]: ");
+            gradeToConvert = input.nextInt();
             input.nextLine();
 
-            System.out.println("Here is your table!\n");
-            System.out.println("number | squared | cubed");
-            System.out.println("------ | ------- | -----");
-            for (int count = 1; count <= end; count++) {
-                System.out.printf("%-6d | %-7d | %d\n", count, (int) Math.pow(count, 2), (int) Math.pow(count, 3));
+            if (gradeToConvert > 87) {
+                System.out.println(gradeToConvert + " = " + "A");
+            } else if (gradeToConvert > 79) {
+                System.out.println(gradeToConvert + " = " + "B");
+            } else if (gradeToConvert > 66) {
+                System.out.println(gradeToConvert + " = " + "C");
+            } else if (gradeToConvert >= 60) {
+                System.out.println(gradeToConvert + " = " + "D");
+            } else {
+                System.out.println(gradeToConvert + " = " + "F");
             }
 
-            System.out.print("\nWould you like to enter another number? [y/n]: ");
+            System.out.print("\nWould you like to enter another grade? [y/n]: ");
             runAgain = Character.toLowerCase(input.next().charAt(0));
         }
         while(runAgain != 'n');
