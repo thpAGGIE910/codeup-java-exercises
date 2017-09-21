@@ -23,7 +23,32 @@ public class MethodsExercises {
             userInput = getInteger(max, min);
         }
 
-        System.out.printf("You entered the number %d!", userInput);
+        System.out.printf("You entered the number %d!\n", userInput);
+
+        //Problem 3
+        boolean userFinished = false;
+        Scanner input = new Scanner(System.in);
+        long factorialResult;
+        min = -1;
+        max = 20;
+
+        do {
+            System.out.printf("I print the factorial of an integer between %d and %d.\nEnter a number (-1 to quit): ", 1, max);
+            userInput = getInteger(min, max);
+            if (userInput >= 0) {
+                factorialResult = factorial(userInput);
+                System.out.printf("The factorial of %d is %d\n", userInput, factorialResult);
+            } else {
+                userFinished = true;
+            }
+        } while(!userFinished);
+    }
+
+    private static long factorial(int n) {
+        if (n <= 0) {
+            return 1;
+        }
+        return n * factorial(n - 1);
     }
 
     public static int getInteger(int min, int max) {
