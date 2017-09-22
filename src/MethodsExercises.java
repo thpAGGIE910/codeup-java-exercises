@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class MethodsExercises {
@@ -27,7 +28,6 @@ public class MethodsExercises {
 
         //Problem 3
         boolean userFinished = false;
-        Scanner input = new Scanner(System.in);
         long factorialResult;
         min = -1;
         max = 20;
@@ -42,30 +42,30 @@ public class MethodsExercises {
                 userFinished = true;
             }
         } while(!userFinished);
-    }
 
-    private static long factorial(int n) {
-        if (n <= 0) {
-            return 1;
-        }
-        return n * factorial(n - 1);
-    }
+        //Problem 4
+        Scanner input = new Scanner(System.in);
+        String userChoice = "n";
+        short sides;
 
-    public static int getInteger(int min, int max) {
-        Scanner inputStream = new Scanner(System.in);
-        int input = inputStream.nextInt();
+        System.out.print("This program rolls 2 n-sided dice.\nHow many sides does each die have: ");
+        sides = input.nextShort();
+        input.nextLine();
 
-        if(input < min) {
-            System.out.printf("ERROR: The number you entered (%d) is less than the min (%d)!\n", input, min);
-            System.out.printf("Please enter a number between %d and %d: ", min, max);
-            return getInteger(min, max);
-        } else if (input > max) {
-            System.out.printf("ERROR: The number you entered (%d) is greater than the max (%d)!\n", input, max);
-            System.out.printf("Please enter a number between %d and %d: ", min, max);
-            return getInteger(min, max);
-        }
+        do {
+            System.out.print("Roll the dice?[Enter]");
+            input.nextLine();
 
-        return input;
+            short die1 = rollDie(sides);
+            short die2 = rollDie(sides);
+            System.out.println(" DIE1   DIE2");
+            System.out.println("------ ------");
+            System.out.printf(" %4d   %4d\n", die1, die2);
+
+            System.out.print("Would you like to roll again? [y/n]: ");
+            userChoice = input.next();
+            input.nextLine();
+        } while(!userChoice.equalsIgnoreCase("n"));
     }
 
     public static int add(int a, int b) {
@@ -99,5 +99,35 @@ public class MethodsExercises {
 
     public static int modulus(int c, int d) {
         return c % d;
+    }
+
+    public static int getInteger(int min, int max) {
+        Scanner inputStream = new Scanner(System.in);
+        int input = inputStream.nextInt();
+
+        if(input < min) {
+            System.out.printf("ERROR: The number you entered (%d) is less than the min (%d)!\n", input, min);
+            System.out.printf("Please enter a number between %d and %d: ", min, max);
+            return getInteger(min, max);
+        } else if (input > max) {
+            System.out.printf("ERROR: The number you entered (%d) is greater than the max (%d)!\n", input, max);
+            System.out.printf("Please enter a number between %d and %d: ", min, max);
+            return getInteger(min, max);
+        }
+
+        return input;
+    }
+
+    public static long factorial(int n) {
+        if (n <= 0) {
+            return 1;
+        }
+        return n * factorial(n - 1);
+    }
+
+    public static short rollDie(short sides) {
+        // Random dieRNG = new Random();
+        // return (int)(dieRNG.nextInt(sides) + 1);
+        return (short) (Math.floor(Math.random() * sides) + 1);
     }
 }
