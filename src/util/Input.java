@@ -35,36 +35,6 @@ public class Input {
         return yesNo();
     }
 
-    public int getInt(int min, int max) {
-        int response;
-
-        try {
-            response = scanner.nextInt();
-
-            if (response < min || response > max) {
-                throw new OutOfBoundsException();
-            }
-        } catch(InputMismatchException ime) {
-
-            System.out.println("Input must be an integer!");
-            scanner.nextLine();
-            return getInt(min, max);
-
-        } catch(OutOfBoundsException obe) {
-
-            System.out.printf("Input is outside the range [%d, %d]!\n", min, max);
-            scanner.nextLine();
-            return getInt(min, max);
-        }
-
-        return response;
-    }
-
-    public int getInt(int min, int max, String prompt) {
-        System.out.print(prompt);
-        return getInt(min, max);
-    }
-
     public int getInt() {
         int response;
 
@@ -86,34 +56,28 @@ public class Input {
         return getInt();
     }
 
-    public double getDouble(double min, double max) {
-        double response;
+    public int getInt(int min, int max) {
+        int response;
 
         try {
-            response = scanner.nextDouble();
+            response = getInt();
 
             if (response < min || response > max) {
                 throw new OutOfBoundsException();
             }
-        } catch(InputMismatchException ime) {
-
-            System.out.println("Input must be an double!");
-            scanner.nextLine();
-            return getDouble(min, max);
-
         } catch(OutOfBoundsException obe) {
 
-            System.out.printf("Input is outside the range [%.2f, %.2f]!\n", min, max);
+            System.out.printf("Input is outside the range [%d, %d]!\n", min, max);
             scanner.nextLine();
-            return getDouble(min, max);
+            return getInt(min, max);
         }
 
         return response;
     }
 
-    public double getDouble(double min, double max, String prompt) {
+    public int getInt(int min, int max, String prompt) {
         System.out.print(prompt);
-        return getDouble(min, max);
+        return getInt(min, max);
     }
 
     public double getDouble() {
@@ -134,5 +98,29 @@ public class Input {
     public double getDouble(String prompt) {
         System.out.print(prompt);
         return getDouble();
+    }
+
+    public double getDouble(double min, double max) {
+        double response;
+
+        try {
+            response = getDouble();
+
+            if (response < min || response > max) {
+                throw new OutOfBoundsException();
+            }
+        } catch(OutOfBoundsException obe) {
+
+            System.out.printf("Input is outside the range [%.2f, %.2f]!\n", min, max);
+            scanner.nextLine();
+            return getDouble(min, max);
+        }
+
+        return response;
+    }
+
+    public double getDouble(double min, double max, String prompt) {
+        System.out.print(prompt);
+        return getDouble(min, max);
     }
 }
