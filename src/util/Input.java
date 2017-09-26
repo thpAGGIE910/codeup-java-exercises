@@ -11,11 +11,17 @@ public class Input {
     }
 
     public String getString() {
-        return scanner.nextLine();
+        String response;
+
+        response = scanner.nextLine();
+
+        return response;
     }
 
     public boolean yesNo() {
-        String response = scanner.nextLine();
+        String response;
+
+        response = scanner.nextLine();
         return (response.equalsIgnoreCase("yes") || response.equalsIgnoreCase("y"));
     }
 
@@ -24,6 +30,7 @@ public class Input {
 
         try {
             response = scanner.nextInt();
+
             if (response < min || response > max) {
                 throw new OutOfBoundsException();
             }
@@ -44,8 +51,10 @@ public class Input {
     }
 
     public int getInt() {
+        int response;
+
         try {
-            return scanner.nextInt();
+            response = scanner.nextInt();
 
         } catch (InputMismatchException ime) {
 
@@ -53,6 +62,8 @@ public class Input {
             scanner.nextLine();
             return getInt();
         }
+
+        return response;
     }
 
     public double getDouble(double min, double max) {
@@ -60,6 +71,7 @@ public class Input {
 
         try {
             response = scanner.nextDouble();
+
             if (response < min || response > max) {
                 throw new OutOfBoundsException();
             }
@@ -80,8 +92,9 @@ public class Input {
     }
 
     public double getDouble() {
+        double response;
         try {
-            return scanner.nextDouble();
+            response = scanner.nextDouble();
 
         } catch (InputMismatchException ime) {
 
@@ -89,5 +102,7 @@ public class Input {
             scanner.nextLine();
             return getDouble();
         }
+
+        return response;
     }
 }
