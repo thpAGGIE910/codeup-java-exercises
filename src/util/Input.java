@@ -18,11 +18,21 @@ public class Input {
         return response;
     }
 
+    public String getString(String prompt) {
+        System.out.print(prompt);
+        return getString();
+    }
+
     public boolean yesNo() {
         String response;
 
         response = scanner.nextLine();
         return (response.equalsIgnoreCase("yes") || response.equalsIgnoreCase("y"));
+    }
+
+    public boolean yesNo(String prompt) {
+        System.out.print(prompt);
+        return yesNo();
     }
 
     public int getInt(int min, int max) {
@@ -50,6 +60,11 @@ public class Input {
         return response;
     }
 
+    public int getInt(int min, int max, String prompt) {
+        System.out.print(prompt);
+        return getInt(min, max);
+    }
+
     public int getInt() {
         int response;
 
@@ -64,6 +79,11 @@ public class Input {
         }
 
         return response;
+    }
+
+    public int getInt(String prompt) {
+        System.out.print(prompt);
+        return getInt();
     }
 
     public double getDouble(double min, double max) {
@@ -91,6 +111,11 @@ public class Input {
         return response;
     }
 
+    public double getDouble(double min, double max, String prompt) {
+        System.out.print(prompt);
+        return getDouble(min, max);
+    }
+
     public double getDouble() {
         double response;
         try {
@@ -104,5 +129,10 @@ public class Input {
         }
 
         return response;
+    }
+
+    public double getDouble(String prompt) {
+        System.out.print(prompt);
+        return getDouble();
     }
 }
