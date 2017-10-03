@@ -15,5 +15,9 @@ public class InputTest {
         System.out.printf("You entered %.1f\n", input.getDouble(3.0, 3.5, "Enter a double between 3.0 and 3.5: "));
 
         System.out.printf("You entered %.2f\n", input.getDouble("Enter an double: "));
+
+        System.out.printf("You entered %d as binary\n", input.getBinary("Enter a Binary number: "));
+
+        System.out.printf("You entered %d as hexadecimal\n", input.getHex("Enter a Hexadecimal number: "));
     }
 }

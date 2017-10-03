@@ -113,4 +113,32 @@ public class Input {
         System.out.print(prompt);
         return getDouble(min, max);
     }
+
+    public int getBinary() {
+        try {
+            return Integer.valueOf(scanner.nextLine(), 2);
+        } catch (NumberFormatException nfe) {
+            System.out.println("Input must be a binary number!");
+            return getBinary();
+        }
+    }
+
+    public int getBinary(String prompt) {
+        System.out.print(prompt);
+        return getBinary();
+    }
+
+    public int getHex() {
+        try {
+            return Integer.valueOf(scanner.nextLine(), 16);
+        } catch (NumberFormatException nfe) {
+            System.out.println("Input must be a hexadecimal number!");
+            return getHex();
+        }
+    }
+
+    public int getHex(String prompt) {
+        System.out.print(prompt);
+        return getHex();
+    }
 }
