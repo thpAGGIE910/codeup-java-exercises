@@ -36,7 +36,7 @@ public class Input {
     }
 
     public int getInt() {
-        String response = scanner.nextLine();
+        String response = getString();
 
         try {
             return Integer.valueOf(response);
@@ -76,7 +76,7 @@ public class Input {
     }
 
     public double getDouble() {
-        String response = scanner.nextLine();
+        String response = getString();
         try {
             return Double.valueOf(response);
 
@@ -116,7 +116,7 @@ public class Input {
 
     public int getBinary() {
         try {
-            return Integer.valueOf(scanner.nextLine(), 2);
+            return Integer.valueOf(getString(), 2);
         } catch (NumberFormatException nfe) {
             System.out.println("Input must be a binary number!");
             return getBinary();
@@ -130,7 +130,7 @@ public class Input {
 
     public int getHex() {
         try {
-            return Integer.valueOf(scanner.nextLine(), 16);
+            return Integer.valueOf(getString(), 16);
         } catch (NumberFormatException nfe) {
             System.out.println("Input must be a hexadecimal number!");
             return getHex();
