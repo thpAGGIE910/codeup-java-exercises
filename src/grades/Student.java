@@ -27,7 +27,7 @@ public class Student {
 
         return sum / this.grades.size();
     }
-
+    /*
     public static void main(String[] args) {
         Student travis = new Student("Travis Payne");
         System.out.println("Adding a grade of 100 to Travis's grades...");
@@ -39,4 +39,5 @@ public class Student {
 
         System.out.printf("Calculating Travis's average, expecting 95...\n%f", travis.getGradeAverage());
     }
+    */
 }
