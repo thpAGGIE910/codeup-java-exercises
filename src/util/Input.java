@@ -36,19 +36,15 @@ public class Input {
     }
 
     public int getInt() {
-        int response;
+        String response = scanner.nextLine();
 
         try {
-            response = scanner.nextInt();
+            return Integer.valueOf(response);
 
-        } catch (InputMismatchException ime) {
-
+        } catch (NumberFormatException nfe) {
             System.out.println("Input must be an integer!");
-            scanner.nextLine();
             return getInt();
         }
-
-        return response;
     }
 
     public int getInt(String prompt) {
@@ -68,7 +64,6 @@ public class Input {
         } catch(OutOfBoundsException obe) {
 
             System.out.printf("Input is outside the range [%d, %d]!\n", min, max);
-            scanner.nextLine();
             return getInt(min, max);
         }
 
@@ -81,18 +76,14 @@ public class Input {
     }
 
     public double getDouble() {
-        double response;
+        String response = scanner.nextLine();
         try {
-            response = scanner.nextDouble();
+            return Double.valueOf(response);
 
-        } catch (InputMismatchException ime) {
-
+        } catch (NumberFormatException nfe) {
             System.out.println("Input must be an double!");
-            scanner.nextLine();
             return getDouble();
         }
-
-        return response;
     }
 
     public double getDouble(String prompt) {
@@ -112,7 +103,6 @@ public class Input {
         } catch(OutOfBoundsException obe) {
 
             System.out.printf("Input is outside the range [%.2f, %.2f]!\n", min, max);
-            scanner.nextLine();
             return getDouble(min, max);
         }
 
